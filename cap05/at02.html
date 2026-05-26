@@ -1,130 +1,56 @@
-<!DOCTYPE html>  <html lang="pt-BR">  
-<head>  
-  <meta charset="UTF-8">  
-  <title>Listas Avançadas — Cap. 4 / Ativ. 3</title>  
-</head>  
-<body>    <h1>Guia de Tecnologias Web</h1>    <h2>Seção 1 — Roteiro de Estudos</h2>    <p>Etapa 1</p>  
-  <ol type="1">  
-    <li>HTML  
-      <ol type="a">  
-        <li>Tags básicas</li>  
-        <li>Estrutura</li>  
-      </ol>  
-    </li>  
-    <li>CSS  
-      <ol type="a">  
-        <li>Seletores</li>  
-        <li>Cores</li>  
-      </ol>  
-    </li>  
-    <li>Lógica  
-      <ol type="a">  
-        <li>Variáveis</li>  
-        <li>Condicionais</li>  
-      </ol>  
-    </li>  
-  </ol>    <p>Etapa 2</p>  
-  <ol type="1" start="4">  
-    <li>JavaScript  
-      <ol type="a">  
-        <li>DOM</li>  
-        <li>Eventos</li>  
-      </ol>  
-    </li>  
-    <li>API  
-      <ol type="a">  
-        <li>O que é</li>  
-        <li>Como usar</li>  
-      </ol>  
-    </li>  
-    <li>Git  
-      <ol type="a">  
-        <li>Commits</li>  
-        <li>GitHub Pages</li>  
-      </ol>  
-    </li>  
-  </ol>    <h2>Seção 2 — Ranking de Tecnologias</h2>    <ol reversed>  
-    <li>  
-      <p>CSS — Estiliza as páginas.</p>  
-    </li>  
-    <li>  
-      <p>HTML — Estrutura as páginas.</p>  
-    </li>  
-    <li>  
-      <p>Git — Controle de versão.</p>  
-    </li>  
-    <li>  
-      <p>JavaScript — Adiciona interatividade.</p>  
-    </li>  
-    <li>  
-      <p>Python — Usado no backend.</p>  
-    </li>  
-  </ol>    <h2>Seção 3 — Glossário</h2>    <dl>  
-    <dt>HTML</dt>  
-    <dd>Linguagem de marcação para estruturar páginas.</dd>  
-    <dd>Define o conteúdo da página.</dd>  <dt>CSS</dt>  
-<dd>Linguagem para estilizar páginas.</dd>  
-<dd>Controla cores e fontes.</dd>  
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWEB1 — Cap. 05 — AT02 — Cadastro de Usuário</title>
+</head>
+<body>
 
-<dt>JavaScript</dt>  
-<dd>Linguagem que adiciona interatividade.</dd>  
+  <header>
+    <h1>Cadastro de Usuário</h1>
+    <p><a href="../index.html">← Voltar para a página principal</a></p>
+  </header>
 
-<dt>DOM</dt>  
-<dd>Representação em árvore do HTML.</dd>  
+  <main>
+    <form action="https://httpbin.org/post" method="post">
 
-<dt>API</dt>  
-<dd>Interface de comunicação entre sistemas.</dd>  
+      <label for="nome">Nome completo:</label><br>
+      <input type="text" id="nome" name="nome" required minlength="3"><br><br>
 
-<dt>HTTP</dt>  
-<dt>HTTPS</dt>  
-<dd>Protocolo de transferência de dados na web.</dd>  
+      <label for="email">E-mail:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
 
-<dt>URL</dt>  
-<dt>Endereço web</dt>  
-<dd>Endereço único de um recurso na internet.</dd>  
+      <label for="senha">Senha:</label><br>
+      <input type="password" id="senha" name="senha" required minlength="8"><br><br>
 
-<dt>DNS</dt>  
-<dd>Traduz nomes de domínio em endereços IP.</dd>
+      <label for="nascimento">Data de nascimento:</label><br>
+      <input type="date" id="nascimento" name="nascimento" required><br><br>
 
-  </dl>    <h2>Seção 4 — Mapa de Tecnologias</h2>    <ul>  
-    <li>Desenvolvimento Web  
-      <ul>  
-        <li>Frontend  
-          <ul>  
-            <li>Linguagens  
-              <ul>  
-                <li>HTML</li>  
-                <li>CSS</li>  
-                <li>JavaScript</li>  
-              </ul>  
-            </li>  
-            <li>Frameworks  
-              <ul>  
-                <li>React</li>  
-                <li>Vue.js</li>  
-                <li>Angular</li>  
-              </ul>  
-            </li>  
-          </ul>  
-        </li>  
-        <li>Backend  
-          <ul>  
-            <li>Linguagens  
-              <ul>  
-                <li>Python</li>  
-                <li>Java</li>  
-                <li>Node.js</li>  
-              </ul>  
-            </li>  
-            <li>Bancos de Dados  
-              <ul>  
-                <li>MySQL</li>  
-                <li>PostgreSQL</li>  
-              </ul>  
-            </li>  
-          </ul>  
-        </li>  
-      </ul>  
-    </li>  
-  </ul>    <p><a href="../index.html">← Voltar</a></p>  </body>  
+      <fieldset>
+        <legend>Gênero</legend>
+
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino</label><br>
+
+        <input type="radio" id="feminino" name="genero" value="feminino">
+        <label for="feminino">Feminino</label><br>
+
+        <input type="radio" id="outro" name="genero" value="outro">
+        <label for="outro">Outro</label><br>
+
+        <input type="radio" id="prefiro_nao_informar" name="genero" value="prefiro_nao_informar">
+        <label for="prefiro_nao_informar">Prefiro não informar</label>
+      </fieldset><br>
+
+      <input type="checkbox" id="aceite" name="aceite" value="sim" required>
+      <label for="aceite">Aceito os termos de uso</label><br><br>
+
+      <button type="submit">Criar conta</button>
+      <button type="reset">Limpar campos</button>
+
+    </form>
+  </main>
+
+</body>
 </html>

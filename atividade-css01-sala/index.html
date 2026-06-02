@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Pet</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <header>
+    <h1>Cadastro de Animal de Estimação</h1>
+    <p>Preencha os dados do seu pet.</p>
+  </header>
+
+  <form>
+    <label for="nome">Nome:</label>
+    <input class="campo" type="text" id="nome" name="nome">
+
+    <label for="especie">Espécie:</label>
+    <select class="campo" id="especie" name="especie">
+      <option>Cachorro</option>
+      <option>Gato</option>
+      <option>Pássaro</option>
+    </select>
+
+    <label for="nascimento">Data de Nascimento:</label>
+    <input class="campo" type="date" id="nascimento" name="nascimento">
+
+    <label for="email">E-mail do Tutor:</label>
+    <input class="campo obrigatorio" type="email" id="email" name="email">
+
+    <label for="obs">Observações:</label>
+    <textarea class="campo" id="obs" name="obs"></textarea>
+
+    <label>
+      <input type="checkbox" name="termos"> Aceito os termos de uso
+    </label>
+
+    <label>Período:</label>
+    <input type="radio" name="periodo" value="manha"> Manhã
+    <input type="radio" name="periodo" value="tarde"> Tarde
+
+    <button class="botao" type="submit">Enviar</button>
+  </form>
+
+  <footer>
+    <p>Adeilton Francisco Filho &amp; [Colega] — Junho de 2025 — Desenvolvimento de Sistemas</p>
+  </footer>
+
+</body>
+</html>

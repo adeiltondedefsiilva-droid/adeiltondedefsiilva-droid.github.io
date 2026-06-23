@@ -1,1 +1,250 @@
+/* - Base - */
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+
+/* - Cabeçalho - */
+
+.cabecalho {
+  background-color: #1565c0;
+  padding: 2rem;
+}
+
+/* Agrupamento de seletores */
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.cabecalho h1 {
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.subtitulo {
+  color: #bbdefb;
+  font-size: 1rem;
+}
+
+
+/* - Menu - */
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+
+/* Filho direto */
+.menu > ul > li > a {
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+
+/* Pseudo-elemento */
+.menu a::before {
+  content: "› ";
+}
+
+
+/* - Seções - */
+
+.secao {
+  width: 90%;
+  max-width: 60rem;
+  padding: 2rem;
+}
+
+
+.secao h2 {
+  color: #1565c0;
+  font-size: 1.5rem;
+}
+
+
+.secao h3 {
+  color: #0d47a1;
+  font-size: 1.25rem;
+}
+
+
+/* Irmão adjacente */
+h2 + p {
+  margin-top: 1rem;
+}
+
+
+/* Irmão geral */
+.destaque ~ p {
+  background-color: #eeeeee;
+}
+
+
+/* - Cartões - */
+
+.cartao {
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+
+
+.cartao:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+.cartao:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+
+
+.cartao:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+
+.botao {
+  display: inline-block;
+  background-color: #1565c0;
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+}
+
+
+
+.botao:hover {
+  text-decoration: underline;
+}
+
+
+/* - Lista de programação - */
+
+.lista-dias {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+
+/* Filho direto */
+.lista-dias > li {
+  font-weight: bold;
+}
+
+.lista-dias > li:first-child {
+  color: #1565c0;
+}
+
+.lista-dias > li:last-child {
+  color: #b71c1c;
+}
+
+
+/* - Formulário - */
+
+.formulario {
+  max-width: 30rem;
+}
+
+
+.formulario label {
+  display: block;
+  font-size: 1rem;
+  margin-top: 1em;
+}
+
+
+input,
+textarea {
+  display: block;
+  width: 80%;
+  font-size: 1rem;
+  padding: 0.5em;
+  margin-top: 0.25em;
+  border: 1px solid #999999;
+}
+
+
+
+input:focus,
+textarea:focus {
+  border-color: #1565c0;
+}
+
+
+/* Seletores de atributo */
+input[type="email"] {
+  border: 2px solid #1565c0;
+}
+
+input[type="password"] {
+  border: 2px solid #b71c1c;
+}
+
+
+/* Pseudo-elemento */
+.formulario label::after {
+  content: "*";
+}
+
+
+button {
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #1565c0;
+  padding: 0.5em 1.5em;
+  margin-top: 1rem;
+  border: 0;
+}
+
+
+/* - ponto especifico - */
+/*
+.botao possui menor especificidade que .cartao .botao.
+A segunda regra vence porque possui dois seletores de classe.
+*/
+
+.botao {
+  background-color: #1565c0;
+}
+
+.cartao .botao {
+  background-color: #0d47a1;
+}
+
+
+/* - Rodapé - */
+
+.rodape {
+  background-color: #263238;
+  color: #cfd8dc;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+}

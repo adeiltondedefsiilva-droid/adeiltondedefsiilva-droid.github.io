@@ -1,4 +1,9 @@
 /* - Base - */
+/* rem usa como referência o  tamanho da font do elemento raiz (html), sendo mais previsível em zoom eredimensionamento.
+   em depende do elemento pai, podendo mudar conforme a hierarquia e causar efeitos acumulativos.
+   % é calculado com base no tamanho do elemento pai, sendo mais usado para dimensões responsivas.
+   rem é preferivel para fontes e espaçamentos globais; em, para componentes internos.
+   % é ideal para layouts flexíveis que precisam ocupar proporções do espaço disponivel */
 
 body {
   font-family: Arial, Helvetica, sans-serif;

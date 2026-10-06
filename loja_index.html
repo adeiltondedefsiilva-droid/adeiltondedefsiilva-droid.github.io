@@ -85,18 +85,59 @@
     <h2 class="mt-4">Destaques</h2>
 <div class="row g-3">
   <div class="col-lg-3 col-md-6">
-    <div class="card h-100">
-      <span class="badge text-bg-danger position-absolute m-2">Promoção</span>
-      <img src="https://placehold.co/400x300" class="card-img-top" alt="Produto">
-      <div class="card-body">
-        <h5 class="card-title">Produto 1</h5>
-        <p class="card-text">
-          <span class="text-muted text-decoration-line-through">R$ 99,00</span>
-          <strong class="text-danger">R$ 79,00</strong>
-        </p>
+      <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProduto" style="cursor: pointer;">
+       <span class="badge text-bg-danger position-absolute m-2">Promoção</span>
+        <img src="https://placehold.co/400x300" class="card-img-top" alt="Produto">
+         <div class="card-body">
+    <h5 class="card-title">Produto 1</h5>
+      <p class="card-text">
+           <span class="text-muted text-decoration-line-through">R$ 99,00</span>
+            <strong class="text-danger">R$ 79,00</strong>
+      </p>
         <button class="btn btn-primary w-100">Adicionar ao carrinho</button>
       </div>
     </div>
+  </div>
+</div>
+  <div class="modal fade" id="modalProduto" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detalhes do produto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://placehold.co/400x300" class="img-fluid mb-3" alt="Produto">
+        <p>Descrição do produto.</p>
+        <strong class="text-danger">R$ 79,00</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Adicionar ao carrinho</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="row g-3 mt-4">
+  <div class="col-md-6">
+    <img src="https://placehold.co/600x250?text=Banner+Promocional+A" class="img-fluid w-100" alt="Banner A">
+  </div>
+  <div class="col-md-6">
+    <img src="https://placehold.co/600x250?text=Banner+Promocional+B" class="img-fluid w-100" alt="Banner B">
+  </div>
+</div>
+    <div class="row g-3 mt-4 text-center">
+  <div class="col-md-4">
+    <div class="fs-1">🚚</div>
+    <strong>Entrega para todo o Brasil</strong>
+  </div>
+  <div class="col-md-4">
+    <div class="fs-1">🔒</div>
+    <strong>Pagamento seguro</strong>
+  </div>
+  <div class="col-md-4">
+    <div class="fs-1">🔄</div>
+    <strong>Troca grátis em 30 dias</strong>
   </div>
 </div>
    

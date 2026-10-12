@@ -1,602 +1,619 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Loja</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Loja</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    .produto img {
-      width: 100%;
-      height: 180px;
-      object-fit: contain;
-      padding: 10px;
-    }
+<style>
+body { background: #fff; }
 
-    .carousel-img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
+.produto-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  padding: 10px;
+}
 
-    .banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+.carousel-img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background: #f1f7f3;
+}
 
-    .banner-caixa {
-      height: 200px;
-    }
+.banner-caixa {
+  height: 190px;
+  background: #f0f7ed;
+}
 
-    .card-produto {
-      cursor: pointer;
-    }
+.banner-caixa img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
-    .card-produto:hover {
-      transform: translateY(-3px);
-      transition: transform 0.2s;
-    }
+.card-produto { cursor: pointer; }
 
-    @media (max-width: 576px) {
-      .carousel-img {
-        height: 160px;
-      }
+.card-produto:hover {
+  transform: translateY(-3px);
+  transition: .2s;
+}
 
-      .banner-caixa {
-        height: 150px;
-      }
-    }
-  </style>
+.categoria-img {
+  width: 100%;
+  height: 95px;
+  object-fit: contain;
+}
+
+.modal-img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+
+@media(max-width:576px) {
+  .carousel-img { height: 160px; }
+  .banner-caixa { height: 140px; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- FAIXA DE AVISO -->
-  <div class="bg-primary text-white text-center py-2">
-    Frete grátis acima de R$ 199
-  </div>
-
-  <!-- MENU -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container">
-
-      <a class="navbar-brand" href="#">Minha Loja</a>
-
-      <button class="navbar-toggler" type="button"
-        data-bs-toggle="collapse" data-bs-target="#menu"
-        aria-controls="menu" aria-expanded="false"
-        aria-label="Abrir menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="menu">
-
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Início</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#"
-              role="button" data-bs-toggle="dropdown">
-              Categorias
-            </a>
-
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Categoria 1</a></li>
-              <li><a class="dropdown-item" href="#">Categoria 2</a></li>
-              <li><a class="dropdown-item" href="#">Categoria 3</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Ofertas</a>
-          </li>
-        </ul>
-
-        <form class="d-flex" role="search" onsubmit="return false">
-          <input class="form-control me-2" type="search"
-            placeholder="Buscar produtos..." aria-label="Buscar produtos">
-          <button class="btn btn-outline-primary" type="submit">
-            Buscar
-          </button>
-        </form>
-
-        <button class="btn btn-outline-primary position-relative ms-2"
-          type="button">
-          Carrinho
-          <span class="badge text-bg-danger position-absolute top-0 start-100 translate-middle">
-            3
-          </span>
-        </button>
-
-      </div>
-    </div>
-  </nav>
-
-  <div class="container">
-
-    <!-- CARROSSEL PRINCIPAL -->
-    <div id="banners" class="carousel slide mt-3"
-      data-bs-ride="carousel">
-
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#banners"
-          data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-
-        <button type="button" data-bs-target="#banners"
-          data-bs-slide-to="1" aria-label="Slide 2"></button>
-
-        <button type="button" data-bs-target="#banners"
-          data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Cleaning_things.jpg"
-            class="d-block carousel-img"
-            alt="Vassoura e utensílios de limpeza"
-            fetchpriority="high">
-        </div>
-
-        <div class="carousel-item">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Broom_image.jpg"
-            class="d-block carousel-img"
-            alt="Vassoura para limpeza">
-        </div>
-
-        <div class="carousel-item">
-          <img
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80"
-            class="d-block carousel-img"
-            alt="Produtos e materiais de limpeza">
-        </div>
-
-      </div>
-
-      <button class="carousel-control-prev" type="button"
-        data-bs-target="#banners" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"
-          aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-
-      <button class="carousel-control-next" type="button"
-        data-bs-target="#banners" data-bs-slide="next">
-        <span class="carousel-control-next-icon"
-          aria-hidden="true"></span>
-        <span class="visually-hidden">Próximo</span>
-      </button>
-
-    </div>
-
-    <!-- CATEGORIAS -->
-    <h2 class="mt-4">Categorias</h2>
-
-    <div class="row g-3">
-      <div class="col-lg-2 col-4">
-        <div class="card text-center p-2">Categoria 1</div>
-      </div>
-
-      <div class="col-lg-2 col-4">
-        <div class="card text-center p-2">Categoria 2</div>
-      </div>
-
-      <div class="col-lg-2 col-4">
-        <div class="card text-center p-2">Categoria 3</div>
-      </div>
-
-      <div class="col-lg-2 col-4">
-        <div class="card text-center p-2">Categoria 4</div>
-      </div>
-
-      <div class="col-lg-2 col-4">
-        <div class="card text-center p-2">Categoria 5</div>
-      </div>
-
-      <div class="col-lg-2 col-4">
-        <div class="card text-center p-2">Categoria 6</div>
-      </div>
-    </div>
-
-    <!-- PRODUTOS EM DESTAQUE -->
-    <h2 class="mt-4">Destaques</h2>
-
-    <div class="row g-3">
-
-      <!-- PRODUTO 1 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 card-produto"
-          data-bs-toggle="modal" data-bs-target="#modalProduto1">
-
-          <span class="badge text-bg-danger position-absolute m-2">
-            Promoção
-          </span>
-
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Broom_image.jpg"
-            class="card-img-top produto"
-            alt="Vassoura para limpeza">
-
-          <div class="card-body">
-            <h5 class="card-title">Produto 1</h5>
-
-            <p class="card-text">
-              <span class="text-muted text-decoration-line-through">
-                R$ 99,00
-              </span>
-              <strong class="text-danger">R$ 79,00</strong>
-            </p>
-
-            <button class="btn btn-primary w-100"
-              type="button"
-              onclick="event.stopPropagation(); adicionarCarrinho('Produto 1', 79)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRODUTO 2 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 card-produto"
-          data-bs-toggle="modal" data-bs-target="#modalProduto2">
-
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Cleaning_things.jpg"
-            class="card-img-top produto"
-            alt="Utensílios para limpeza">
-
-          <div class="card-body">
-            <h5 class="card-title">Produto 2</h5>
-
-            <p class="card-text">
-              <strong>R$ 89,00</strong>
-            </p>
-
-            <button class="btn btn-primary w-100"
-              type="button"
-              onclick="event.stopPropagation(); adicionarCarrinho('Produto 2', 89)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRODUTO 3 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 card-produto"
-          data-bs-toggle="modal" data-bs-target="#modalProduto3">
-
-          <span class="badge text-bg-danger position-absolute m-2">
-            Promoção
-          </span>
-
-          <img
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80"
-            class="card-img-top produto"
-            alt="Materiais de limpeza">
-
-          <div class="card-body">
-            <h5 class="card-title">Produto 3</h5>
-
-            <p class="card-text">
-              <span class="text-muted text-decoration-line-through">
-                R$ 149,00
-              </span>
-              <strong class="text-danger">R$ 119,00</strong>
-            </p>
-
-            <button class="btn btn-primary w-100"
-              type="button"
-              onclick="event.stopPropagation(); adicionarCarrinho('Produto 3', 119)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRODUTO 4 -->
-      <div class="col-lg-3 col-md-6">
-        <div class="card h-100 card-produto"
-          data-bs-toggle="modal" data-bs-target="#modalProduto4">
-
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Broom_image.jpg"
-            class="card-img-top produto"
-            alt="Vassoura doméstica">
-
-          <div class="card-body">
-            <h5 class="card-title">Produto 4</h5>
-
-            <p class="card-text">
-              <strong>R$ 59,00</strong>
-            </p>
-
-            <button class="btn btn-primary w-100"
-              type="button"
-              onclick="event.stopPropagation(); adicionarCarrinho('Produto 4', 59)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- MODAL 1 -->
-    <div class="modal fade" id="modalProduto1"
-      tabindex="-1" aria-hidden="true">
-
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h5 class="modal-title">Produto 1</h5>
-            <button type="button" class="btn-close"
-              data-bs-dismiss="modal" aria-label="Fechar"></button>
-          </div>
-
-          <div class="modal-body">
-            <img
-              src="https://commons.wikimedia.org/wiki/Special:FilePath/Broom_image.jpg"
-              class="img-fluid w-100"
-              alt="Vassoura para limpeza">
-
-            <p class="mt-3">Produto em promoção.</p>
-            <p>
-              <del class="text-muted">R$ 99,00</del>
-              <strong class="text-danger">R$ 79,00</strong>
-            </p>
-
-            <button class="btn btn-primary w-100"
-              onclick="adicionarCarrinho('Produto 1', 79)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL 2 -->
-    <div class="modal fade" id="modalProduto2"
-      tabindex="-1" aria-hidden="true">
-
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h5 class="modal-title">Produto 2</h5>
-            <button type="button" class="btn-close"
-              data-bs-dismiss="modal" aria-label="Fechar"></button>
-          </div>
-
-          <div class="modal-body">
-            <img
-              src="https://commons.wikimedia.org/wiki/Special:FilePath/Cleaning_things.jpg"
-              class="img-fluid w-100"
-              alt="Utensílios para limpeza">
-
-            <p class="mt-3">Confira os detalhes deste produto.</p>
-            <strong>R$ 89,00</strong>
-
-            <button class="btn btn-primary w-100 mt-3"
-              onclick="adicionarCarrinho('Produto 2', 89)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL 3 -->
-    <div class="modal fade" id="modalProduto3"
-      tabindex="-1" aria-hidden="true">
-
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h5 class="modal-title">Produto 3</h5>
-            <button type="button" class="btn-close"
-              data-bs-dismiss="modal" aria-label="Fechar"></button>
-          </div>
-
-          <div class="modal-body">
-            <img
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
-              class="img-fluid w-100"
-              alt="Materiais de limpeza">
-
-            <p class="mt-3">Produto em promoção.</p>
-            <p>
-              <del class="text-muted">R$ 149,00</del>
-              <strong class="text-danger">R$ 119,00</strong>
-            </p>
-
-            <button class="btn btn-primary w-100"
-              onclick="adicionarCarrinho('Produto 3', 119)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL 4 -->
-    <div class="modal fade" id="modalProduto4"
-      tabindex="-1" aria-hidden="true">
-
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h5 class="modal-title">Produto 4</h5>
-            <button type="button" class="btn-close"
-              data-bs-dismiss="modal" aria-label="Fechar"></button>
-          </div>
-
-          <div class="modal-body">
-            <img
-              src="https://commons.wikimedia.org/wiki/Special:FilePath/Broom_image.jpg"
-              class="img-fluid w-100"
-              alt="Vassoura doméstica">
-
-            <p class="mt-3">Confira os detalhes deste produto.</p>
-            <strong>R$ 59,00</strong>
-
-            <button class="btn btn-primary w-100 mt-3"
-              onclick="adicionarCarrinho('Produto 4', 59)">
-              Adicionar ao carrinho
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- BANNERS PROMOCIONAIS -->
-    <div class="row g-3 mt-4">
-
-      <div class="col-md-6">
-        <div class="border rounded overflow-hidden banner-caixa banner">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Cleaning_things.jpg"
-            alt="Banner promocional de vassouras e materiais de limpeza"
-            loading="lazy">
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="border rounded overflow-hidden banner-caixa banner">
-          <img
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80"
-            alt="Banner de produtos para limpeza"
-            loading="lazy">
-        </div>
-      </div>
-
-    </div>
-
-    <!-- BENEFÍCIOS -->
-    <div class="row g-3 mt-4 text-center">
-
-      <div class="col-md-4">
-        <div class="fs-1">🚚</div>
-        <strong>Entrega para todo o Brasil</strong>
-      </div>
-
-      <div class="col-md-4">
-        <div class="fs-1">🔒</div>
-        <strong>Pagamento seguro</strong>
-      </div>
-
-      <div class="col-md-4">
-        <div class="fs-1">🔄</div>
-        <strong>Troca grátis em 30 dias</strong>
-      </div>
-
-    </div>
-
-    <!-- NEWSLETTER -->
-    <div class="text-center mt-5">
-      <h5>Receba nossas ofertas</h5>
-
-      <form class="input-group mx-auto"
-        style="max-width: 400px"
-        onsubmit="assinarNewsletter(event)">
-
-        <input type="email" class="form-control"
-          placeholder="seu e-mail" required>
-
-        <button class="btn btn-primary" type="submit">
-          Assinar
-        </button>
-      </form>
-
-      <p id="mensagemNewsletter" class="mt-2"></p>
-    </div>
-
-  </div>
-
-  <!-- RODAPÉ -->
-  <footer class="bg-light mt-5 py-4">
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-md-3">
-          <h6>Institucional</h6>
-          <p>Sobre nós</p>
-        </div>
-
-        <div class="col-md-3">
-          <h6>Ajuda</h6>
-          <p>Contato</p>
-        </div>
-
-        <div class="col-md-3">
-          <h6>Redes sociais</h6>
-          <p>Instagram</p>
-        </div>
-
-        <div class="col-md-3">
-          <h6>Formas de pagamento</h6>
-          <p>Cartão, Pix, Boleto</p>
-        </div>
-
-      </div>
-
-      <hr>
-
-      <p class="text-center mb-0">
-        © 2026 Minha Loja — CNPJ 00.000.000/0000-00
-      </p>
-
-    </div>
-  </footer>
-
-  <!-- JAVASCRIPT DO BOOTSTRAP -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    let quantidadeCarrinho = 3;
-
-    function adicionarCarrinho(nome, preco) {
-      quantidadeCarrinho++;
-
-      const badge = document.querySelector(
-        '.navbar .badge.text-bg-danger'
-      );
-
-      badge.textContent = quantidadeCarrinho;
-
-      alert(
-        nome + ' foi adicionado ao carrinho por R$ ' +
-        preco.toFixed(2).replace('.', ',') + '.'
-      );
-    }
-
-    function assinarNewsletter(event) {
-      event.preventDefault();
-
-      document.getElementById('mensagemNewsletter').textContent =
-        'Inscrição demonstrativa realizada!';
-
-      event.target.reset();
-    }
-  </script>
-
-</body>
-</html>
+<!-- AVISO -->
+<div class="bg-primary text-white text-center py-2">
+  Frete grátis acima de R$ 199
+</div>
+
+<!-- MENU -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">Minha Loja</a>
+
+<button class="navbar-toggler" type="button"
+data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#"
+data-bs-toggle="dropdown">Categorias</a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="#categorias">Categoria 1</a></li>
+<li><a class="dropdown-item" href="#categorias">Categoria 2</a></li>
+<li><a class="dropdown-item" href="#categorias">Categoria 3</a></li>
+</ul>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="#destaques">Ofertas</a></li>
+</ul>
+
+<form class="d-flex" onsubmit="buscarProduto(event)">
+<input id="busca" class="form-control me-2"
+type="search" placeholder="Buscar produtos...">
+<button class="btn btn-outline-primary">Buscar</button>
+</form>
+
+<button class="btn btn-outline-primary position-relative ms-2"
+data-bs-toggle="modal" data-bs-target="#modalCarrinho">
+Carrinho
+<span id="contador" class="badge text-bg-danger
+position-absolute top-0 start-100 translate-middle">0</span>
+</button>
+
+</div>
+</div>
+</nav>
+
+<div class="container">
+
+<!-- CARROSSEL -->
+<div id="banners" class="carousel slide mt-3" data-bs-ride="carousel">
+
+<div class="carousel-indicators">
+<button data-bs-target="#banners" data-bs-slide-to="0"
+class="active" aria-label="Slide 1"></button>
+<button data-bs-target="#banners" data-bs-slide-to="1"
+aria-label="Slide 2"></button>
+<button data-bs-target="#banners" data-bs-slide-to="2"
+aria-label="Slide 3"></button>
+</div>
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<img data-imagem="banner1" class="d-block carousel-img"
+alt="Vassouras e materiais de limpeza">
+</div>
+
+<div class="carousel-item">
+<img data-imagem="banner2" class="d-block carousel-img"
+alt="Produtos de limpeza">
+</div>
+
+<div class="carousel-item">
+<img data-imagem="banner3" class="d-block carousel-img"
+alt="Utensílios domésticos">
+</div>
+
+</div>
+
+<button class="carousel-control-prev" data-bs-target="#banners"
+data-bs-slide="prev" type="button">
+<span class="carousel-control-prev-icon"
+style="filter:invert(1)"></span>
+</button>
+
+<button class="carousel-control-next" data-bs-target="#banners"
+data-bs-slide="next" type="button">
+<span class="carousel-control-next-icon"
+style="filter:invert(1)"></span>
+</button>
+</div>
+
+<!-- CATEGORIAS -->
+<h2 id="categorias" class="mt-4">Categorias</h2>
+
+<div class="row g-3">
+
+<div class="col-lg-2 col-4">
+<div class="card text-center p-2 h-100">
+<img data-imagem="vassoura" class="categoria-img" alt="Vassoura">
+Categoria 1
+</div>
+</div>
+
+<div class="col-lg-2 col-4">
+<div class="card text-center p-2 h-100">
+<img data-imagem="frascos" class="categoria-img" alt="Frascos">
+Categoria 2
+</div>
+</div>
+
+<div class="col-lg-2 col-4">
+<div class="card text-center p-2 h-100">
+<img data-imagem="esponja" class="categoria-img" alt="Esponjas">
+Categoria 3
+</div>
+</div>
+
+<div class="col-lg-2 col-4">
+<div class="card text-center p-2 h-100">
+<img data-imagem="esfregao" class="categoria-img" alt="Esfregão">
+Categoria 4
+</div>
+</div>
+
+<div class="col-lg-2 col-4">
+<div class="card text-center p-2 h-100">
+<img data-imagem="luvas" class="categoria-img" alt="Luvas">
+Categoria 5
+</div>
+</div>
+
+<div class="col-lg-2 col-4">
+<div class="card text-center p-2 h-100">
+<img data-imagem="saco" class="categoria-img" alt="Saco de lixo">
+Categoria 6
+</div>
+</div>
+
+</div>
+
+<!-- PRODUTOS -->
+<h2 id="destaques" class="mt-4">Destaques</h2>
+
+<div class="row g-3" id="listaProdutos">
+
+<!-- PRODUTO 1 -->
+<div class="col-lg-3 col-md-6 item-produto" data-nome="vassoura">
+<div class="card h-100 card-produto"
+data-bs-toggle="modal" data-bs-target="#produto1">
+
+<span class="badge text-bg-danger position-absolute m-2">Promoção</span>
+<img data-imagem="vassoura" class="produto-img" alt="Vassoura">
+
+<div class="card-body">
+<h5 class="card-title">Produto 1</h5>
+<p>
+<del class="text-muted">R$ 99,00</del>
+<strong class="text-danger">R$ 79,00</strong>
+</p>
+<button class="btn btn-primary w-100"
+onclick="adicionar(event,1)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+
+<!-- PRODUTO 2 -->
+<div class="col-lg-3 col-md-6 item-produto" data-nome="limpeza frascos">
+<div class="card h-100 card-produto"
+data-bs-toggle="modal" data-bs-target="#produto2">
+
+<img data-imagem="balde" class="produto-img" alt="Balde de limpeza">
+
+<div class="card-body">
+<h5 class="card-title">Produto 2</h5>
+<p><strong>R$ 89,00</strong></p>
+<button class="btn btn-primary w-100"
+onclick="adicionar(event,2)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+
+<!-- PRODUTO 3 -->
+<div class="col-lg-3 col-md-6 item-produto" data-nome="frascos produtos">
+<div class="card h-100 card-produto"
+data-bs-toggle="modal" data-bs-target="#produto3">
+
+<span class="badge text-bg-danger position-absolute m-2">Promoção</span>
+<img data-imagem="frascos" class="produto-img" alt="Produtos de limpeza">
+
+<div class="card-body">
+<h5 class="card-title">Produto 3</h5>
+<p>
+<del class="text-muted">R$ 149,00</del>
+<strong class="text-danger">R$ 119,00</strong>
+</p>
+<button class="btn btn-primary w-100"
+onclick="adicionar(event,3)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+
+<!-- PRODUTO 4 -->
+<div class="col-lg-3 col-md-6 item-produto" data-nome="vassoura vermelha">
+<div class="card h-100 card-produto"
+data-bs-toggle="modal" data-bs-target="#produto4">
+
+<img data-imagem="vassouraVermelha" class="produto-img" alt="Vassoura vermelha">
+
+<div class="card-body">
+<h5 class="card-title">Produto 4</h5>
+<p><strong>R$ 59,00</strong></p>
+<button class="btn btn-primary w-100"
+onclick="adicionar(event,4)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- MODAIS DOS PRODUTOS -->
+<div id="produto1" class="modal fade" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Produto 1</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<img data-imagem="vassoura" class="modal-img" alt="Vassoura">
+<p class="mt-3">Produto em promoção.</p>
+<p><del>R$ 99,00</del> <strong class="text-danger">R$ 79,00</strong></p>
+<button class="btn btn-primary w-100" onclick="adicionarModal(1)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+</div>
+
+<div id="produto2" class="modal fade" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Produto 2</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<img data-imagem="balde" class="modal-img" alt="Balde de limpeza">
+<p class="mt-3">Confira os detalhes deste produto.</p>
+<strong>R$ 89,00</strong>
+<button class="btn btn-primary w-100 mt-3" onclick="adicionarModal(2)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+</div>
+
+<div id="produto3" class="modal fade" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Produto 3</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<img data-imagem="frascos" class="modal-img" alt="Produtos de limpeza">
+<p class="mt-3">Produto em promoção.</p>
+<p><del>R$ 149,00</del> <strong class="text-danger">R$ 119,00</strong></p>
+<button class="btn btn-primary w-100" onclick="adicionarModal(3)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+</div>
+
+<div id="produto4" class="modal fade" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Produto 4</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<img data-imagem="vassouraVermelha" class="modal-img" alt="Vassoura">
+<p class="mt-3">Confira os detalhes deste produto.</p>
+<strong>R$ 59,00</strong>
+<button class="btn btn-primary w-100 mt-3" onclick="adicionarModal(4)">Adicionar ao carrinho</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODAL DO CARRINHO -->
+<div id="modalCarrinho" class="modal fade" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Meu carrinho</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<div id="itensCarrinho">Seu carrinho está vazio.</div>
+<hr>
+<strong id="totalCarrinho">Total: R$ 0,00</strong>
+</div>
+</div>
+</div>
+</div>
+
+<!-- BANNERS -->
+<div class="row g-3 mt-4">
+
+<div class="col-md-6">
+<div class="border rounded overflow-hidden banner-caixa">
+<img data-imagem="banner1" alt="Promoção de vassouras">
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="border rounded overflow-hidden banner-caixa">
+<img data-imagem="banner2" alt="Promoção de produtos de limpeza">
+</div>
+</div>
+
+</div>
+
+<!-- BENEFÍCIOS -->
+<div class="row g-3 mt-4 text-center">
+
+<div class="col-md-4">
+<div class="fs-1">🚚</div>
+<strong>Entrega para todo o Brasil</strong>
+</div>
+
+<div class="col-md-4">
+<div class="fs-1">🔒</div>
+<strong>Pagamento seguro</strong>
+</div>
+
+<div class="col-md-4">
+<div class="fs-1">🔄</div>
+<strong>Troca grátis em 30 dias</strong>
+</div>
+
+</div>
+
+<!-- NEWSLETTER -->
+<div class="text-center mt-5">
+<h5>Receba nossas ofertas</h5>
+
+<form class="input-group mx-auto" style="max-width:400px"
+onsubmit="assinar(event)">
+<input id="email" type="email" class="form-control"
+placeholder="seu e-mail" required>
+<button class="btn btn-primary">Assinar</button>
+</form>
+
+<p id="mensagemNewsletter" class="mt-2"></p>
+</div>
+
+</div>
+
+<!-- RODAPÉ -->
+<footer class="bg-light mt-5 py-4">
+<div class="container">
+<div class="row">
+
+<div class="col-md-3">
+<h6>Institucional</h6>
+<p>Sobre nós</p>
+</div>
+
+<div class="col-md-3">
+<h6>Ajuda</h6>
+<p>Contato</p>
+</div>
+
+<div class="col-md-3">
+<h6>Redes sociais</h6>
+<p>Instagram</p>
+</div>
+
+<div class="col-md-3">
+<h6>Formas de pagamento</h6>
+<p>Cartão, Pix, Boleto</p>
+</div>
+
+</div>
+<hr>
+<p class="text-center mb-0">
+© 2026 Minha Loja — CNPJ 00.000.000/0000-00
+</p>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/*
+  TODAS AS ILUSTRAÇÕES ESTÃO NESTE ARQUIVO.
+  Nenhuma imagem é baixada da internet.
+*/
+
+function svgImagem(conteudo, fundo = "#f7fafc") {
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="500" height="350" viewBox="0 0 500 350">
+    <defs>
+      <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="${fundo}"/>
+        <stop offset="1" stop-color="#ffffff"/>
+      </linearGradient>
+      <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+        <stop stop-color="#0872d9"/>
+        <stop offset=".5" stop-color="#64b5f6"/>
+        <stop offset="1" stop-color="#0861ad"/>
+      </linearGradient>
+    </defs>
+    <rect width="500" height="350" rx="20" fill="url(#fundo)"/>
+    <ellipse cx="250" cy="300" rx="145" ry="15" fill="#dce5ed" opacity=".65"/>
+    ${conteudo}
+  </svg>`;
+
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
+
+const desenhos = {
+  vassoura: svgImagem(`
+    <g transform="rotate(13 250 170)">
+      <rect x="238" y="35" width="18" height="210" rx="9" fill="url(#metal)"/>
+      <rect x="190" y="218" width="115" height="18" rx="6" fill="#0872d9"/>
+      <path d="M190 230 L305 230 L290 290 Q248 310 205 290 Z" fill="#222b35"/>
+      ${Array.from({length:13},(_,i)=>`<path d="M${197+i*8} 235 L${202+i*7} 288" stroke="#59636c" stroke-width="3"/>`).join("")}
+      <path d="M200 283 Q250 305 295 283" fill="none" stroke="#111820" stroke-width="6"/>
+    </g>`),
+
+  vassouraVermelha: svgImagem(`
+    <g transform="rotate(-8 250 170)">
+      <rect x="245" y="35" width="17" height="210" rx="8" fill="#e53935"/>
+      <rect x="190" y="220" width="125" height="19" rx="5" fill="#e53935"/>
+      <path d="M190 235 L315 235 L295 290 Q250 308 208 290 Z" fill="#222b35"/>
+      ${Array.from({length:14},(_,i)=>`<path d="M${198+i*8} 239 L${205+i*7} 288" stroke="#69737c" stroke-width="3"/>`).join("")}
+    </g>`),
+
+  frascos: svgImagem(`
+    <g>
+      <rect x="105" y="112" width="80" height="165" rx="17" fill="#08a9bd"/>
+      <rect x="125" y="87" width="38" height="30" rx="5" fill="#087b91"/>
+      <rect x="135" y="72" width="20" height="18" rx="3" fill="#087b91"/>
+      <rect x="212" y="88" width="88" height="190" rx="18" fill="#8edb30"/>
+      <rect x="234" y="60" width="42" height="32" rx="5" fill="#59a51e"/>
+      <rect x="245" y="43" width="20" height="20" rx="3" fill="#59a51e"/>
+      <rect x="320" y="125" width="75" height="152" rx="16" fill="#1686ef"/>
+      <rect x="340" y="97" width="37" height="31" rx="5" fill="#0872d9"/>
+      <rect x="350" y="81" width="18" height="18" rx="3" fill="#0872d9"/>
+      <path d="M120 145 Q145 130 169 145" fill="none" stroke="#fff" stroke-width="7" opacity=".6"/>
+      <path d="M230 130 Q255 116 281 130" fill="none" stroke="#fff" stroke-width="7" opacity=".5"/>
+    </g>`),
+
+  esponja: svgImagem(`
+    <g transform="rotate(-15 250 170)">
+      <rect x="125" y="115" width="250" height="135" rx="18" fill="#f7d82c"/>
+      <rect x="125" y="165" width="250" height="85" rx="15" fill="#48a84d"/>
+      <path d="M145 185 L350 185 M145 205 L350 205 M145 225 L350 225"
+      stroke="#75c96e" stroke-width="5" opacity=".7"/>
+      <circle cx="170" cy="140" r="7" fill="#fff3a1"/>
+      <circle cx="205" cy="150" r="5" fill="#fff3a1"/>
+      <circle cx="330" cy="143" r="6" fill="#fff3a1"/>
+    </g>`),
+
+  esfregao: svgImagem(`
+    <g>
+      <rect x="247" y="35" width="13" height="205" rx="7" fill="url(#metal)"/>
+      <rect x="205" y="222" width="100" height="18" rx="8" fill="#0872d9"/>
+      ${Array.from({length:19},(_,i)=>`<path d="M${212+i*4.5} 237 Q${185+i*7} 270 ${200+i*5} 294" stroke="${i%2?"#e9dfc5":"#cfc4a9"}" stroke-width="5" fill="none" stroke-linecap="round"/>`).join("")}
+    </g>`),
+
+  luvas: svgImagem(`
+    <g fill="#ffdb19" stroke="#e9bd00" stroke-width="3">
+      <path d="M135 270 L118 190 Q115 176 127 173 Q138 172 143 190 L150 216 L145 135 Q145 120 157 120 Q170 120 170 136 L174 198 L179 111 Q180 97 192 99 Q205 101 203 116 L201 197 L212 126 Q215 112 227 117 Q239 122 235 137 L224 207 L244 166 Q251 153 262 162 Q272 170 265 184 L235 253 Q215 283 185 285 Z"/>
+      <path d="M295 273 L276 205 Q271 191 283 186 Q294 182 301 199 L313 220 L302 145 Q300 131 312 128 Q324 125 329 141 L339 198 L333 119 Q333 105 346 104 Q359 104 360 120 L365 198 L372 132 Q374 118 386 123 Q399 128 395 143 L384 215 L398 177 Q404 164 415 171 Q426 178 419 192 L398 253 Q380 283 350 284 Z"/>
+    </g>`),
+
+  saco: svgImagem(`
+    <path d="M180 92 L210 72 L290 72 L320 92 L350 272 Q250 310 150 272 Z" fill="#22282f"/>
+    <path d="M180 92 Q250 112 320 92" fill="none" stroke="#444c54" stroke-width="10"/>
+    <path d="M205 125 L225 265 M250 125 L250 280 M295 125 L275 265" stroke="#555d65" stroke-width="5" opacity=".65"/>
+    <path d="M210 73 Q220 110 250 105 Q280 110 290 73" fill="none" stroke="#15191e" stroke-width="9"/>`),
+
+  balde: svgImagem(`
+    <path d="M145 112 L355 112 L330 278 Q250 302 170 278 Z" fill="#0872d9"/>
+    <path d="M145 112 Q250 135 355 112" fill="none" stroke="#0755a4" stroke-width="12"/>
+    <path d="M177 112 Q250 15 323 112" fill="none" stroke="#0755a4" stroke-width="12"/>
+    <rect x="175" y="163" width="150" height="15" rx="7" fill="#48a9ff" opacity=".7"/>
+    <rect x="185" y="205" width="130" height="40" rx="8" fill="#fff" opacity=".2"/>
+    <rect x="210" y="210" width="80" height="20" rx="4" fill="#fff" opacity=".35"/>
+    <rect x="105" y="220" width="45" height="60" rx="7" fill="#f7d82c"/>
+    <rect x="365" y="225" width="35" height="55" rx="7" fill="#f7d82c"/>`),
+
+  banner1: svgImagem(`
+    <g transform="translate(-25,-5) scale(.85)">
+      <rect x="220" y="30" width="16" height="170" rx="8" fill="#0872d9"/>
+      <rect x="150" y="185" width="155" height="22" rx="6" fill="#0872d9"/>
+      <path d="M150 203 L305 203 L285 270 Q230 293 170 270 Z" fill="#26313b"/>
+      ${Array.from({length:14},(_,i)=>`<path d="M${158+i*10} 210 L${175+i*8} 270" stroke="#75808a" stroke-width="3"/>`).join("")}
+    </g>
+    <g transform="translate(220,30) scale(.55)">
+      <rect x="70" y="100" width="100" height="145" rx="16" fill="#0872d9"/>
+      <rect x="95" y="70" width="50" height="35" fill="#f7d82c"/>
+      <rect x="190" y="135" width="100" height="110" rx="14" fill="#29b7a9"/>
+      <rect x="210" y="105" width="60" height="35" fill="#0872d9"/>
+    </g>
+    <text x="260" y="65" font-size="23" font-weight="bold" fill="#075eb4">Vassouras e</text>
+    <text x="260" y="94" font-size="23" font-weight="bold" fill="#075eb4">materiais de</text>
+    <text x="260" y="123" font-size="23" font-weight="bold" fill="#075eb4">limpeza!</text>`,
+    "#eef7e9"),
+
+  banner2: svgImagem(`
+    <g transform="translate(15,10)">
+      <rect x="45" y="130" width="100" height="140" rx="16" fill="#ec4899"/>
+      <rect x="72" y="102" width="45" height="33" rx="5" fill="#be185d"/>
+      <rect x="165" y="100" width="100" height="170" rx="16" fill="#0872d9"/>
+      <rect x="192" y="72" width="45" height="32" rx="5" fill="#0755a4"/>
+      <rect x="285" y="135" width="95" height="135" rx="16" fill="#f7d82c"/>
+      <rect x="310" y="108" width="45" height="30" rx="5" fill="#d4a900"/>
+      <rect x="55" y="190" width="100" height="65" rx="8" fill="#2db4bd"/>
+      <rect x="275" y="205" width="115" height="55" rx="8" fill="#39a9e8"/>
+    </g>
+    <text x="250" y="45" font-size="21" font-weight="bold" fill="#075eb4">Produtos para</text>
+    <text x="250" y="72" font-size="21" font-weight="bold" fill="#075eb4">uma casa mais</text>
+    <text x="250" y="99" font-size="21" font-weight="bold" fill="#075eb4">limpa!</text>`,
+    "#eaf5fc"),
+
+  banner3: svgImagem(`
+    <g transform="translate(0,10)">
+      <rect x="65" y="115" width="100" height="150" rx="16" fill="#13a8b6"/>
+      <rect x="95" y="85" width="40" height="35" fill="#087b91"/>
+      <rect x="200" y="95" width="100" height="170" rx="16" fill="#f7d82c"/>
+      <rect x="230" y="65" width="40" height="35" fill="#d4a900"/>
+      <rect x="335" y="125" width="85" height="140" rx="16" fill="#6cbf35"/>
+      <rect x="357" y="98" width="42" height="30" fill="#438c1c"/>
+      <rect x="100" y="220" width="60" height="45" rx="6" fill="#1686ef"/>
+    </g>`,
+    "#eff8eb")
+};
+
+// Insere as imagens diretamente no HTML como data URIs.
+document.querySelectorAll("[data-imagem]").forEach(img => {
+  img.src = desenhos[img.dataset.imagem] || desenhos.vassoura;
+});
+
+// FUNCIONAMENTO DO CARRINHO
+const produtos = {
